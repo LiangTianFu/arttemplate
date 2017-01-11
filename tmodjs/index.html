@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./tpl/build/template.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<div id="content2"></div>
+	<script>
+		var data={
+			users:[
+				{
+					"url":"http:www.baidu.com",
+					"name":"百度"
+				},
+				{
+					"url":"http:www.sina.com",
+					"name":"新浪"
+				},
+				{
+					"url":"http:www.qq.com",
+					"name":"qq"
+				}
+			]
+		};
+		var render=template("template_01");
+		var html=render(data);
+		document.getElementById("content").innerHTML=html;
+
+		var html=template("template_02",data);
+		document.getElementById("content2").innerHTML=html;
+
+	</script>
+	
+
+</body>
+</html>

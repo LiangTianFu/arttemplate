@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>嵌入子模版</title>
+	<script src="./template.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+
+	<script type="text/html" id="test">
+		<h1>{{title}}</h1>
+		{{include "listing"}}
+	</script>
+
+	<script type="text/html" id="listing">
+		{{each lists as value i}}
+			<li>索引{{i+1}} : {{value}}</li>
+		{{/each}}
+	</script>
+
+	<script>
+		data={
+			title:"嵌入子模版",
+			lists:['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+		}
+		var html=template("test",data);
+		document.getElementById('content').innerHTML = html;
+	</script>
+</body>
+</html>

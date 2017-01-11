@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>no escape-demo</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="./template.js"></script>
+</head>
+<body>
+	<h1>不转义html</h1>
+	<div id="content"></div>
+
+	<script type="text/html" id="test">
+		<p>不转义：{{#value}}</p>
+		<p>转义：{{value}}</p>
+	</script>
+
+	<script type="text/javascript">
+		var data={
+			value:"<span style='color:red;'>hello world!</span>"
+		};
+		var html=template("test",data);
+		document.getElementById("content").innerHTML=html;
+	</script>
+
+
+</body>
+</html>
